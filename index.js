@@ -28,6 +28,14 @@ router.get('/registrar.html', function(req,res){
 
 })
 
+router.get('/game.html', function(req,res){
+
+    res.sendFile(path.join(__dirname + '/dice/dice/game.html'))
+
+})
+
+app.use(express.static( __dirname + '/dice/'));
+app.use(express.static( __dirname + '/dice/dice/'));
 app.use(express.static( __dirname + '/Views/'));
 
 
