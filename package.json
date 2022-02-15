@@ -1,0 +1,29 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "WebSite Aplication",
+  "engines": {
+    "node": "14.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"   
+  },
+  "author": "JFelipeAB",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "socket.io": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/den-silva/Rpg-Republic"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ]
+}

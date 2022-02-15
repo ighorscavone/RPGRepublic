@@ -1,0 +1,23 @@
+ENTIDADES:
+
+Usuário 
+-Id_Usuario
+-Nome_Usuario
+-E-mail
+-Senha
+
+Sala
+-id_Sala
+-Link
+-Nome
+-ChatLog - string
+-QtdePessoas (max 8)
+-IdUsuarioMestre
+
+Ficha
+-Id_Ficha
+-Conteuto 
+-Id_Usuario
+
+
+-------------------------------------------------------
