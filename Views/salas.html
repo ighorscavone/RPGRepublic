@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon"
+        href="https://imgc.androidappsapk.co/fXDz_Tj2gGTq7hI2Q8cFSCLy-a8Bpmhle27baJq3fFNzrkYgF5jtff-ADsHBTNOuKxM=s300">
+
+    <title>Sala</title>
+
+    <!-- javascript -->
+    <script src="content/js\jquery-3.5.1.min.js"></script>
+    <script src="content/data-tables/js/jquery.dataTables.js"></script>
+    <script src="content/data-tables/js/dataTables.bootstrap.js"></script>
+    <script src="content/js/bootstrap.min.js"></script>
+    <script src="content/adicional/main.js"></script>
+    <script src="content/adicional/sala.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="content/data-tables/css/dataTables.bootstrap.css" />
+    <link href="content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="content/site.css" rel="stylesheet">
+    <style>
+        .messages {
+            width: 90%;
+            height: 400px;
+            margin: 20px 0;
+            border: 1px solid rgb(42, 1, 119);
+            padding: 20px;
+            background-color: rgb(219, 218, 221);
+            align-items: left;
+        }
+
+        #chat {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .borda {
+            border: 1px solid rgb(18, 13, 27);
+        }
+    </style>
+
+</head>
+
+<body class="text-center bodyImage3">
+    <div id="modal" class="modal">
+        <div style="text-align: center;">
+            <h2>Carregando</h2>
+        </div>
+        <div class="loader">
+            <img src="content/images/loading.gif" alt="">
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="home.html" style="font-size: 20px;"> <span style="font-size: 25px;">🎲</span>
+                RPG Replublic</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Login
+                        </a>
+                        <div id="navdropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="login.html">
+                                Logar
+                            </a>
+                            <a class="dropdown-item" href="registrar.html">Registrar</a>
+                        </div>
+                        <div id="navdropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="login.html">
+                                Sair
+                            </a>
+                            <a class="dropdown-item" href="#" onclick="home.LogOut()">Registrar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre ❔</a>
+                    </li>
+                </ul>
+                <a class="nav-link" href="perfil.html">
+                    <img class="avatarIcon" src="https://avatars.dicebear.com/api/avataaars/uash.svg" alt="user">
+                    Perfil
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <br /><br /><br />
+        <div class="container">
+            <div class="row">
+                <h1 style="align-items: center;" id="NomeSala">Sala #022</h1>
+            </div>
+            <div class="row form-signin">
+                <div class="col-4 borda">
+                    </br>
+                    </br>
+                    <h1> Chat</h1>
+                    <form id="chat">
+                        <div class="messages"></div>
+                        <input id="txtText" type="text" style="width: 90%;" name="username" placeholder="digite sua mensagem">
+                        <br/>
+                        <button class="form-control" type="button" onclick="sala.adicionarMensagem()"> Enviar</button>
+                        </input>
+                    </form>
+                </div>
+                <div class="col-8 borda" style="background-color: white;">
+                        <div class="col-2"> &nbsp  &nbsp</div>
+                        <div class="col-11">
+                            <br />
+                            <div class="row">
+                                <img src="./content/images/medieval-shield-png.png" height="20px" width="20px">
+                                &nbsp
+                                &nbsp
+
+                                <p style="text-align:left">Sala #001 - Sala Medieval</p>
+                            </div>
+                            <div class="row">
+                                <img src="./content/images/medieval-shield-png.png" height="20px" width="20px">
+                                &nbsp
+                                &nbsp
+
+                                <p style="text-align:left">Sala #002 - Sala Medieval</p>
+                            </div>
+                            <div class="row">
+                                <img src="./content/images/medieval-shield-png.png" height="20px" width="20px">
+                                &nbsp
+                                &nbsp
+
+                                <p style="text-align:left">Sala #006 - Sala Terror</p>
+                            </div>
+                            <div class="row">
+                                <img src="./content/images/medieval-shield-png.png" height="20px" width="20px">
+                                &nbsp
+                                &nbsp
+
+                                <p style="text-align:left">Sala #011 - Sala Medieval</p>
+                            </div>
+                            <div class="row">
+                                <img src="./content/images/medieval-shield-png.png" height="20px" width="20px">
+                                &nbsp
+                                &nbsp
+
+                                <p style="text-align:left">Sala #021 - Sala Futurista</p>
+                            </div>
+                            <div class="row">
+                                <img src="./content/images/medieval-shield-png.png" height="20px" width="20px">
+                                &nbsp
+                                &nbsp
+
+                                <p style="text-align:left">Sala #022 - Sala Futurista</p>
+                            </div>
+                            <div class="row">
+                                <img src="./content/images/medieval-shield-png.png" height="20px" width="20px">
+                                &nbsp
+                                &nbsp
+
+                                <p style="text-align:left">Sala #023 - Sala Terror</p>
+                            </div>
+                            <div class="col-6">
+                                <input id="txtSala" class="form-control" placeholder="Código da sala" required=""
+                                    autofocus="" width="">
+                                <br />
+                                <a id="btnEntrarSala" class="btn btn-lg btn-block btn-primary"
+                                    onclick="home.validaEntrarSala()">Entrar</a>
+                                <br />
+                                <a id="btnCriarSala" class="btn btn-lg btn-block btn-primary"
+                                    onclick="home.criarSala()">Criar Sala</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<footer class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>&copy; RPG Republic - 2021</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+    var socket = io('http//localhost:3000');
+</script>
+
+</html>

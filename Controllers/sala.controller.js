@@ -10,12 +10,12 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
    
     request.post({
-        url: config.apiUrl + '/home/sala',
+        url: config.apiUrl + '/home/salas',
         form: req.body,
         json: true
     }, function (error, response, body) {
         if (error) {
-            return res.render('sala', { error: 'Erro interno' });
+            return res.render('salas', { error: 'Erro interno' });
         }
 
         if (response.statusCode !== 200) {
