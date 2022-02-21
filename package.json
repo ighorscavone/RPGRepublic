@@ -7,15 +7,17 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"   
+    "start": "node src/server.js"
   },
   "author": "JFelipeAB",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "nodemon": "^2.0.7",
-    "socket.io": "^4.0.1"
+    "sequelize": "^6.16.2",
+    "sequelize-cli": "^6.4.1",
+    "socket.io": "^4.4.1",
+    "tedious": "^14.3.0"
   },
   "repository": {
     "type": "git",
@@ -25,5 +27,8 @@
     "node",
     "heroku",
     "express"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
