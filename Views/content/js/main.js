@@ -130,23 +130,23 @@ function validaHoraInicioTerminoInString(inicio, termino) {
 
 function pesquisarUsuarioLogado() {
 
-    $.ajax({
-        type: "POST",
-        url: base_path + "Home/GetUsuarioLogado",
-        cache: false,
-        dataType: "json",
-        success: function (data) {
+    // $.ajax({
+    //     type: "POST",
+    //     url: base_path + "Home/GetUsuarioLogado",
+    //     cache: false,
+    //     dataType: "json",
+    //     success: function (data) {
 
-            localStorage.setItem('UsuarioLogadoCompleto', JSON.stringify(data.usuario));
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            mostrarErroPopup("Não foi possível obter o usuário logado! Erro:  " + errorThrown);
+    //         localStorage.setItem('UsuarioLogadoCompleto', JSON.stringify(data.usuario));
+    //     },
+    //     error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //         mostrarErroPopup("Não foi possível obter o usuário logado! Erro:  " + errorThrown);
 
-        },
-        complete: function () {
-            removerLoading();
-        }
-    });
+    //     },
+    //     complete: function () {
+    //         removerLoading();
+    //     }
+    // });
 }
 
 
@@ -210,37 +210,37 @@ function encerrarSimulacaoUsuario() {
 
 function criaLinksPorPerfil() {
 
-    verificaValidadePerfil();
+    // verificaValidadePerfil();
 
-    if (localStorage.getItem('PermissoesPerfil') != null) {
-        $ListaFuncionalidades = JSON.parse(localStorage.getItem('PermissoesPerfil'));
-        habilitaLinks();
-    }
-    else {
-        mostrarLoading();
-        $.ajax({
-            type: "POST",
-            url: base_path + "Home/FiltrarLinksPorPerfil",
-            cache: false,
-            dataType: "json",
-            success: function (data) {
-                $ListaFuncionalidades = data.aaData.Funcionalidades;
-                localStorage.setItem('PermissoesPerfilUsuarioLogado', data.aaData.Usuario);
-                localStorage.setItem('PerfilUsuarioLogado', JSON.stringify(data.aaData.Perfil));
-                localStorage.setItem('PermissoesPerfilTemporizador', new Date().getTime());
-                localStorage.setItem('PermissoesPerfil', JSON.stringify(data.aaData.Funcionalidades));
-                habilitaLinks();
+    // if (localStorage.getItem('PermissoesPerfil') != null) {
+    //     $ListaFuncionalidades = JSON.parse(localStorage.getItem('PermissoesPerfil'));
+    //     habilitaLinks();
+    // }
+    // else {
+    //     mostrarLoading();
+    //     $.ajax({
+    //         type: "POST",
+    //         url: base_path + "Home/FiltrarLinksPorPerfil",
+    //         cache: false,
+    //         dataType: "json",
+    //         success: function (data) {
+    //             $ListaFuncionalidades = data.aaData.Funcionalidades;
+    //             localStorage.setItem('PermissoesPerfilUsuarioLogado', data.aaData.Usuario);
+    //             localStorage.setItem('PerfilUsuarioLogado', JSON.stringify(data.aaData.Perfil));
+    //             localStorage.setItem('PermissoesPerfilTemporizador', new Date().getTime());
+    //             localStorage.setItem('PermissoesPerfil', JSON.stringify(data.aaData.Funcionalidades));
+    //             habilitaLinks();
 
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                mostrarErroPopup("N&atilde;o foi poss&iacute;vel carregar o seu perfil de acesso! Erro:  " + errorThrown);
+    //         },
+    //         error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //             mostrarErroPopup("N&atilde;o foi poss&iacute;vel carregar o seu perfil de acesso! Erro:  " + errorThrown);
 
-            },
-            complete: function () {
-                removerLoading();
-            }
-        });
-    }
+    //         },
+    //         complete: function () {
+    //             removerLoading();
+    //         }
+    //     });
+    // }
 }
 
 function isAdministrador() {
@@ -661,7 +661,7 @@ function habilitarAutocomplete() {
 $(document).ready(function () {
     verificaAmbiente();
     //Esta chamada torna os links de acessos dinâmicos
-    criaLinksPorPerfil();
+    //criaLinksPorPerfil();
 
     //Para funcionar o autocomplete
     habilitarAutocomplete();
@@ -1012,18 +1012,18 @@ function verificaAmbiente() {
         }
     }
 
-    if (window.location.toString().toUpperCase().indexOf('TMDC1PORTALHOM') > 0) {
-        var urlAux = window.location.toString();
-        urlAux = urlAux.toUpperCase().replace('HTTP://TMDC1PORTALHOM', 'https://portaltmhom.termomecanica.com.br').toLowerCase();
+    // if (window.location.toString().toUpperCase().indexOf('TMDC1PORTALHOM') > 0) {
+    //     var urlAux = window.location.toString();
+    //     urlAux = urlAux.toUpperCase().replace('HTTP://TMDC1PORTALHOM', 'https://portaltmhom.termomecanica.com.br').toLowerCase();
 
-        window.location = urlAux;
-    }
+    //     window.location = urlAux;
+    // }
 
-    if (window.location.toString().toUpperCase().indexOf('TMDC1PORTALPRD') > 0) {
-        var urlAux = window.location.toString();
-        urlAux = urlAux.toUpperCase().replace('HTTP://TMDC1PORTALPRD', 'https://portaltm.termomecanica.com.br').toLowerCase();
-        window.location = urlAux;
-    }
+    // if (window.location.toString().toUpperCase().indexOf('TMDC1PORTALPRD') > 0) {
+    //     var urlAux = window.location.toString();
+    //     urlAux = urlAux.toUpperCase().replace('HTTP://TMDC1PORTALPRD', 'https://portaltm.termomecanica.com.br').toLowerCase();
+    //     window.location = urlAux;
+    // }
 }
 
 (function ($) {

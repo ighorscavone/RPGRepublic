@@ -27,6 +27,7 @@
     </head>
 
     <body class="text-center bodyImage1">
+        <div id="menuLateral"></div>  
         <div id="modal" class="modal">
             <div style="text-align: center;">
                 <h2>Carregando</h2>
@@ -34,51 +35,8 @@
             <div class="loader">
                 <img src="./content/images/loading.gif" alt="">
             </div>
-        </div>
-    
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="home.html" style="font-size: 20px;"> <span style="font-size: 25px;">🎲</span>
-                    RPG Republic</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-    
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="home.html">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="login.html" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Login
-                            </a>
-                            <div id="navdropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="login.html">
-                                    Logar
-                                </a>
-                                <a class="dropdown-item" href="registrar.html">Registrar</a>
-                            </div>
-                            <div id="navdropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="login.html">
-                                    Sair
-                                </a>
-                                <a class="dropdown-item" href="#" onclick="home.LogOut()">Registrar</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="sobre.html">Sobre</a>
-                        </li>
-                    </ul>
-                    <a class="nav-link" href="perfil.html">
-                        <img class="avatarIcon" src="https://avatars.dicebear.com/api/avataaars/uash.svg" alt="user">
-                        Perfil
-                    </a>
-                </div>
-            </nav>
-        </header>
+        </div>    
+        
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -89,3 +47,9 @@
             </div>
         </div>
 </html>
+
+<script>
+    $(document).ready( function() {
+      $("#menuLateral").load("menuLateral.html");
+    });
+</script>
