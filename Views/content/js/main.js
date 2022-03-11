@@ -1026,62 +1026,62 @@ function verificaAmbiente() {
     // }
 }
 
-// (function ($) {
+(function ($) {
 
 
-//     $(window).ready(function () {
-//         BackToTop({
-//             autoShowOffset: '200',
-//             text: '<span class="glyphicon glyphicon-chevron-up btn-subir-pagina"></span>',
-//             effectScroll: 'linear',
-//             appearMethod: 'fade'
-//         });
-//         $('.menu a[data-toggle=collapse]').click(function () {
-//             if (!$(this).parent().hasClass('active')) {
-//                 $(this).parent().addClass('active');
-//                 $(this).children('.open-collapse')
-//                         .removeClass('icon-angle-down')
-//                         .addClass('icon-angle-up');
-//             } else {
-//                 $(this).parent().removeClass('active');
-//                 $(this).children('.open-collapse')
-//                         .removeClass('icon-angle-up')
-//                         .addClass('icon-angle-down');
-//             }
-//         });
-//         $('#menu-comando').click(function () {
+    $(window).ready(function () {
+        BackToTop({
+            autoShowOffset: '200',
+            text: '<span class="glyphicon glyphicon-chevron-up btn-subir-pagina"></span>',
+            effectScroll: 'linear',
+            appearMethod: 'fade'
+        });
+        $('.menu a[data-toggle=collapse]').click(function () {
+            if (!$(this).parent().hasClass('active')) {
+                $(this).parent().addClass('active');
+                $(this).children('.open-collapse')
+                        .removeClass('icon-angle-down')
+                        .addClass('icon-angle-up');
+            } else {
+                $(this).parent().removeClass('active');
+                $(this).children('.open-collapse')
+                        .removeClass('icon-angle-up')
+                        .addClass('icon-angle-down');
+            }
+        });
+        $('#menu-comando').click(function () {
 
-//             if ($('#conteudo').hasClass('full-width')) {
-//                 localStorage.setItem('navegacaoOpened', true);
-//                 $('.navegacao').fadeIn(500);
-//                 $('#conteudo').removeClass('full-width');
+            if ($('#conteudo').hasClass('full-width')) {
+                localStorage.setItem('navegacaoOpened', true);
+                $('.navegacao').fadeIn(500);
+                $('#conteudo').removeClass('full-width');
 
-//                 $("#container-principal").addClass('fix-reponsividade');
+                $("#container-principal").addClass('fix-reponsividade');
 
-//                 //Ocultar scroll da página ao abrir menu - mantém somente scroll do menu
-//                 $('body').addClass('no-scroll');
+                //Ocultar scroll da página ao abrir menu - mantém somente scroll do menu
+                $('body').addClass('no-scroll');
 
-//                 if (isMobile()) {
-//                     $("#BackToTop").hide();
-//                     $("#SaveButtonPage").hide();
-//                 }
-//             } else {
-//                 localStorage.setItem('navegacaoOpened', false);
-//                 $('.navegacao').fadeOut(190);
-//                 $('#conteudo').addClass('full-width');
-//                 $('body').removeClass('no-scroll');
-//                 $("#container-principal").removeClass('fix-reponsividade');
+                if (isMobile()) {
+                    $("#BackToTop").hide();
+                    $("#SaveButtonPage").hide();
+                }
+            } else {
+                localStorage.setItem('navegacaoOpened', false);
+                $('.navegacao').fadeOut(190);
+                $('#conteudo').addClass('full-width');
+                $('body').removeClass('no-scroll');
+                $("#container-principal").removeClass('fix-reponsividade');
 
-//                 if (isMobile()) {
-//                     $("#BackToTop").show();
-//                     $("#SaveButtonPage").show();
-//                 }
-//             }
+                if (isMobile()) {
+                    $("#BackToTop").show();
+                    $("#SaveButtonPage").show();
+                }
+            }
 
-//         });
-//         $('[data-toggle=tooltip]').tooltip();
-//     });
-// })(jQuery);
+        });
+        $('[data-toggle=tooltip]').tooltip();
+    });
+})(jQuery);
 
 
 
