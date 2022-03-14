@@ -1,21 +1,8 @@
-const Sequelize = require('sequelize');
-const dbConfig = require('../config/database');
+//DEPENDÊNCIAS
+const mongoose = require('mongoose')
 
-//const User = require('../models/User');
+mongoose.connect('mongodb+srv://dev:aFj3UZRYSGifbeub@cluster0.mzipn.mongodb.net/RPG_Republic_PRD?retryWrites=true&w=majority')
 
-const connection = new Sequelize(dbConfig);
+mongoose.Promise = global.Promise
 
-async function test(){
-    try{
-        await Sequelize.authenticate()
-        console.log('sucesso!!')
-    }
-    catch(error){
-        console.log('falhou!!')
-
-    }
-}
-
-
-test()
-module.exports = connection;
+module.exports = mongoose
