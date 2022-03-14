@@ -130,23 +130,23 @@ function validaHoraInicioTerminoInString(inicio, termino) {
 
 function pesquisarUsuarioLogado() {
 
-    $.ajax({
-        type: "POST",
-        url: base_path + "Home/GetUsuarioLogado",
-        cache: false,
-        dataType: "json",
-        success: function (data) {
+    // $.ajax({
+    //     type: "POST",
+    //     url: base_path + "Home/GetUsuarioLogado",
+    //     cache: false,
+    //     dataType: "json",
+    //     success: function (data) {
 
-            localStorage.setItem('UsuarioLogadoCompleto', JSON.stringify(data.usuario));
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            mostrarErroPopup("Não foi possível obter o usuário logado! Erro:  " + errorThrown);
+    //         localStorage.setItem('UsuarioLogadoCompleto', JSON.stringify(data.usuario));
+    //     },
+    //     error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //         mostrarErroPopup("Não foi possível obter o usuário logado! Erro:  " + errorThrown);
 
-        },
-        complete: function () {
-            removerLoading();
-        }
-    });
+    //     },
+    //     complete: function () {
+    //         removerLoading();
+    //     }
+    // });
 }
 
 
@@ -210,37 +210,37 @@ function encerrarSimulacaoUsuario() {
 
 function criaLinksPorPerfil() {
 
-    verificaValidadePerfil();
+    // verificaValidadePerfil();
 
-    if (localStorage.getItem('PermissoesPerfil') != null) {
-        $ListaFuncionalidades = JSON.parse(localStorage.getItem('PermissoesPerfil'));
-        habilitaLinks();
-    }
-    else {
-        mostrarLoading();
-        $.ajax({
-            type: "POST",
-            url: base_path + "Home/FiltrarLinksPorPerfil",
-            cache: false,
-            dataType: "json",
-            success: function (data) {
-                $ListaFuncionalidades = data.aaData.Funcionalidades;
-                localStorage.setItem('PermissoesPerfilUsuarioLogado', data.aaData.Usuario);
-                localStorage.setItem('PerfilUsuarioLogado', JSON.stringify(data.aaData.Perfil));
-                localStorage.setItem('PermissoesPerfilTemporizador', new Date().getTime());
-                localStorage.setItem('PermissoesPerfil', JSON.stringify(data.aaData.Funcionalidades));
-                habilitaLinks();
+    // if (localStorage.getItem('PermissoesPerfil') != null) {
+    //     $ListaFuncionalidades = JSON.parse(localStorage.getItem('PermissoesPerfil'));
+    //     habilitaLinks();
+    // }
+    // else {
+    //     mostrarLoading();
+    //     $.ajax({
+    //         type: "POST",
+    //         url: base_path + "Home/FiltrarLinksPorPerfil",
+    //         cache: false,
+    //         dataType: "json",
+    //         success: function (data) {
+    //             $ListaFuncionalidades = data.aaData.Funcionalidades;
+    //             localStorage.setItem('PermissoesPerfilUsuarioLogado', data.aaData.Usuario);
+    //             localStorage.setItem('PerfilUsuarioLogado', JSON.stringify(data.aaData.Perfil));
+    //             localStorage.setItem('PermissoesPerfilTemporizador', new Date().getTime());
+    //             localStorage.setItem('PermissoesPerfil', JSON.stringify(data.aaData.Funcionalidades));
+    //             habilitaLinks();
 
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                mostrarErroPopup("N&atilde;o foi poss&iacute;vel carregar o seu perfil de acesso! Erro:  " + errorThrown);
+    //         },
+    //         error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //             mostrarErroPopup("N&atilde;o foi poss&iacute;vel carregar o seu perfil de acesso! Erro:  " + errorThrown);
 
-            },
-            complete: function () {
-                removerLoading();
-            }
-        });
-    }
+    //         },
+    //         complete: function () {
+    //             removerLoading();
+    //         }
+    //     });
+    // }
 }
 
 function isAdministrador() {
@@ -617,36 +617,36 @@ function habilitarDatePicker() {
     });
 }
 
-function verificaTamanhoTela() {
-    if (!isMobileMini()) {
-        //Mantém o menu aberto (se não for mobile)
-        if (typeof $(".navegacao") != 'undefined'
-                && $(".navegacao") != null) {
-            if (localStorage.getItem('navegacaoOpened') == 'true') {
-                $(".navegacao").fadeIn(350);
-                document.getElementById('conteudo').setAttribute('class', '');
-            } else {
-                $(".navegacao").fadeOut(350);
-                document.getElementById('conteudo').setAttribute('class', 'full-width');
-            }
-        }
-        $("#logo").find('img').prop('src', base_path + 'Content/images/logotipos/logo_termomecanica_app.png');
-        verificaAmbiente();
-        $('#perfil').find('img').show();
+// function verificaTamanhoTela() {
+//     if (!isMobileMini()) {
+//         //Mantém o menu aberto (se não for mobile)
+//         if (typeof $(".navegacao") != 'undefined'
+//                 && $(".navegacao") != null) {
+//             if (localStorage.getItem('navegacaoOpened') == 'true') {
+//                 $(".navegacao").fadeIn(350);
+//                 document.getElementById('conteudo').setAttribute('class', '');
+//             } else {
+//                 $(".navegacao").fadeOut(350);
+//                 document.getElementById('conteudo').setAttribute('class', 'full-width');
+//             }
+//         }
+//         $("#logo").find('img').prop('src', base_path + 'Content/images/logotipos/logo_termomecanica_app.png');
+//         verificaAmbiente();
+//         $('#perfil').find('img').show();
 
-        // $("#logo").find('img').removeClass('grayscale')
-    }
-    else {
-        //Se for Mobile retrai o menu quando recarregar a página
-        $(".navegacao").fadeOut(360);
-        document.getElementById('conteudo').setAttribute('class', 'full-width');
-        $("#logo").find('img').prop('src', base_path + 'Content/images/logotipos/LOGO_TM.PNG');
-        // $("#logo").find('img').addClass('grayscale')
-        $('#span_nome_ambiente').html('');
-        $('#perfil').find('img').hide();
+//         // $("#logo").find('img').removeClass('grayscale')
+//     }
+//     else {
+//         //Se for Mobile retrai o menu quando recarregar a página
+//         $(".navegacao").fadeOut(360);
+//         document.getElementById('conteudo').setAttribute('class', 'full-width');
+//         $("#logo").find('img').prop('src', base_path + 'Content/images/logotipos/LOGO_TM.PNG');
+//         // $("#logo").find('img').addClass('grayscale')
+//         $('#span_nome_ambiente').html('');
+//         $('#perfil').find('img').hide();
 
-    }
-}
+//     }
+// }
 
 function habilitarAutocomplete() {
     //Para funcionar o autocomplete
@@ -661,7 +661,7 @@ function habilitarAutocomplete() {
 $(document).ready(function () {
     verificaAmbiente();
     //Esta chamada torna os links de acessos dinâmicos
-    criaLinksPorPerfil();
+    //criaLinksPorPerfil();
 
     //Para funcionar o autocomplete
     habilitarAutocomplete();
@@ -677,11 +677,11 @@ $(document).ready(function () {
     //    }
     //}
 
-    window.onresize = function (event) {
-        verificaTamanhoTela();
-    };
+    // window.onresize = function (event) {
+    //     verificaTamanhoTela();
+    // };
 
-    verificaTamanhoTela();
+    // verificaTamanhoTela();
 
     ////Bloqueia o clique direito
     //$(this).bind("contextmenu", function (e) {
@@ -757,7 +757,7 @@ function bindsLoad() {
     bindNumericKeypress();
     bindDecimalKeypress();
     criarEventosDePopup();
-    bindSalvar();
+    // bindSalvar();
     bindNumerico();
     habilitarDatePicker();
     habilitaBotaoSair();
@@ -1012,18 +1012,18 @@ function verificaAmbiente() {
         }
     }
 
-    if (window.location.toString().toUpperCase().indexOf('TMDC1PORTALHOM') > 0) {
-        var urlAux = window.location.toString();
-        urlAux = urlAux.toUpperCase().replace('HTTP://TMDC1PORTALHOM', 'https://portaltmhom.termomecanica.com.br').toLowerCase();
+    // if (window.location.toString().toUpperCase().indexOf('TMDC1PORTALHOM') > 0) {
+    //     var urlAux = window.location.toString();
+    //     urlAux = urlAux.toUpperCase().replace('HTTP://TMDC1PORTALHOM', 'https://portaltmhom.termomecanica.com.br').toLowerCase();
 
-        window.location = urlAux;
-    }
+    //     window.location = urlAux;
+    // }
 
-    if (window.location.toString().toUpperCase().indexOf('TMDC1PORTALPRD') > 0) {
-        var urlAux = window.location.toString();
-        urlAux = urlAux.toUpperCase().replace('HTTP://TMDC1PORTALPRD', 'https://portaltm.termomecanica.com.br').toLowerCase();
-        window.location = urlAux;
-    }
+    // if (window.location.toString().toUpperCase().indexOf('TMDC1PORTALPRD') > 0) {
+    //     var urlAux = window.location.toString();
+    //     urlAux = urlAux.toUpperCase().replace('HTTP://TMDC1PORTALPRD', 'https://portaltm.termomecanica.com.br').toLowerCase();
+    //     window.location = urlAux;
+    // }
 }
 
 (function ($) {
@@ -2274,15 +2274,15 @@ $.fn.serializeObject = function () {
     return o;
 };
 
-$(function () {
-    $.datepicker._updateDatepicker_original = $.datepicker._updateDatepicker;
-    $.datepicker._updateDatepicker = function (inst) {
-        $.datepicker._updateDatepicker_original(inst);
-        var afterShow = this._get(inst, 'afterShow');
-        if (afterShow)
-            afterShow.apply((inst.input ? inst.input[0] : null));  // trigger custom callback
-    }
-});
+// //$(function () {
+//     $.datepicker._updateDatepicker_original = $.datepicker._updateDatepicker;
+//     $.datepicker._updateDatepicker = function (inst) {
+//         $.datepicker._updateDatepicker_original(inst);
+//         var afterShow = this._get(inst, 'afterShow');
+//         if (afterShow)
+//             afterShow.apply((inst.input ? inst.input[0] : null));  // trigger custom callback
+//     }
+// });
 
 function listarItemsSelecionados(lista) {
     return ($.grep(lista, function (element, index) {

@@ -28,6 +28,12 @@ var sala = function () {
 
     }
 
+    var dados = function()
+    {
+        montarModalComEfeito()
+
+    }
+
     var adicionarMensagem = function () {
         debugger
         $(".messages").append('<div ><strong>' + 'Usuario123' + '</strong>: ' + GetMensagem() + '</div><hr>')
@@ -44,6 +50,7 @@ var sala = function () {
     return {
         controles: controles,
         adicionarMensagem: adicionarMensagem,
-        CriaSalas:CriaSalas
+        CriaSalas:CriaSalas,
+        dados: dados
     };
 }();
