@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="DnD, dangeon and dragons, roleplay, dice, roller, 3D, RPG, wargame"/>
+<meta name="description" content="Online 3D dice roller"/>
+
+<style type="text/css">@import "../main.css";</style>
+<style type="text/css">@import "dice.css";</style>
+
+</head>
+
+<body style="margin: 0">   
+    <div id="info_div" style="display: none">
+        <div class="center_field">
+            <span id="label"></span>
+        </div>
+        <div class="center_field">
+            <div class="bottom_field">
+                <span id="labelhelp">Click para continuar ou role novamente!</span>
+            </div>
+        </div>
+    </div>
+    <div id="selector_div" style="display: none">
+        <div class="center_field">
+            <div id="sethelp">
+                Escolha seu conjunto de dados clicando nos dados<br/>
+                Pressione o botão de arremesso ou arraste-os na tela para rolar!
+            </div>
+        </div>
+        <div class="center_field">
+            <input type="text" id="set" value="4d6"></input><br/>
+            <button id="clear">Limpar</button>
+            <button style="margin-left: 0.6em" id="throw">Rolar</button>
+        </div>
+    </div>
+    <div id="canvas"></div>
+
+    <script src="../libs/three.min.js"></script>
+    <script src="../libs/cannon.min.js"></script>    
+
+
+    <script type="text/javascript" src="../teal.js"></script>
+    <script type="text/javascript" src="dice.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" defer="defer">
+        dice_initialize(document.body);
+    </script>
+</body>
+</html>
