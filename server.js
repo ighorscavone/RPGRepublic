@@ -35,26 +35,26 @@ router.get('/', function(req,res){
 
 router.get('/login', function(req,res){
 
-    res.sendFile(path.join(__dirname + '/views/login.html'))
+    res.render(path.join(__dirname + '/views/login.ejs'), { title: 'Login', layout: './layouts/layoutHome.ejs' })
 
 })
 
 
 router.get('/sobre', function(req,res){
 
-    res.sendFile(path.join(__dirname + '/views/sobre.html'))
+    res.render(path.join(__dirname + '/views/sobre.ejs'), { title: 'Sobre', layout: './layouts/layoutHome.ejs' })
 
 })
 
 router.get('/registrar', function(req,res){
 
-    res.sendFile(path.join(__dirname + '/views/registrar.html'))
+    res.render(path.join(__dirname + '/views/registrar.ejs'), { title: 'Registrar', layout: './layouts/layoutHome.ejs' })
 
 })
 
 router.get('/game', function(req,res){
 
-    res.sendFile(path.join(__dirname + '/dice/dice/game.html'))
+    res.render(path.join(__dirname + '/dice/dice/game.ejs'), { title: 'Game', layout: './layouts/layoutHome.ejs' })
 
 })
 

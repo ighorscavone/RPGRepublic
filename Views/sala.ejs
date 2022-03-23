@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon"
-        href="https://imgc.androidappsapk.co/fXDz_Tj2gGTq7hI2Q8cFSCLy-a8Bpmhle27baJq3fFNzrkYgF5jtff-ADsHBTNOuKxM=s300">
-
-    <title>Sala</title>
-
-    <!-- javascript -->
-    <script src="content/js\jquery-3.5.1.min.js"></script>
-    <script src="content/data-tables/js/jquery.dataTables.js"></script>
-    <script src="content/data-tables/js/dataTables.bootstrap.js"></script>
-    <script src="content/js/bootstrap.min.js"></script>
-    <script src="content/adicional/main.js"></script>
-    <script src="content/adicional/sala.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
-    <script src="content/js/main.js"></script>
-
-    <!-- css -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="content/data-tables/css/dataTables.bootstrap.css" />
-    <link href="content/css/bootstrap.min.css" rel="stylesheet">
-    <link href="content/site.css" rel="stylesheet">
     <style>
         .messages {
             width: 90%;
@@ -50,6 +22,9 @@
             border: 1px solid rgb(18, 13, 27);
         }
     </style>
+    <title>
+        <%- title %>
+    </title>
 
 </head>
 
@@ -73,13 +48,13 @@
             <div class="row form-signin">
                 <div class="col-4  borda">
                     <div class="col-12">
-                        <br/>
+                        <br />
                         <button class="form-control" type="button" onclick="sala.dados()">
-                            Dados</button>    
+                            Dados</button>
                     </div>
                     <div class="col-12">
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                         <h1> Chat</h1>
                         <form id="chat">
                             <div class="messages"></div>
@@ -119,14 +94,4 @@
             </div>
         </div>
     </div>
-
 </body>
-
-
-</html>
-
-<script>
-    $(document).ready(function () {
-        $("#menuLateral").load("menuLateral.html");
-    });
-</script>
