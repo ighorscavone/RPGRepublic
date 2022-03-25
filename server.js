@@ -58,6 +58,41 @@ router.get('/game', function(req,res){
 
 })
 
+app.post('/salvarUsuario', (req, res) => {
+
+    //DESTRUCT, EXTRAIR PROPRIEDADE DE UM OBJETO PARA VARIÁVEIS
+    const { dto } = req.body;
+
+    if(!dto) res.send("Dados insuficientes!");
+
+    //CASO O NOME DA PROPRIEDADE DE CONSULTA SEJA IGUAL AO NOME DE UMA VARÍAVEL
+    //NÃO É NECESSÁRIO REPETI-LA: EX: email: email
+    schemaUsuario.find({email}, (erro, usuario) => {
+
+        if(erro) res.send("Erro ao consultar usuário");
+
+        if(usuario) res.send("Usuário já existe");
+
+        let senhaCriptografada = criptografar(senha);
+
+        schemaUsuario.create({email, senhaCriptografada}, (erro, usuario) => {
+
+            if(erro) res.send("Erro ao criar novo usuário");
+
+            //IMPEDE QUE A SENHA SEJA RETORNADA
+            usuario.senha = undefined;
+            res.send({
+                usuario,
+                token: criaTokenUsuario(usuario.id)
+            });
+            
+        })
+    })
+    
+    res.send("Método post USUARIOS funcionando corretamente");
+
+})
+
 app.use(express.static( __dirname + '/dice/'));
 app.use(express.static( __dirname + '/dice/dice/'));
 app.use(express.static( __dirname + '/views/'));

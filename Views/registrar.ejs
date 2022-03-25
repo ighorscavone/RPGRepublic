@@ -2,37 +2,27 @@
   <title>
     <%- title %>
   </title>
+  <script src="./content/adicional/registrar.js"></script> 
 </head>
 
-<body class="text-center bodyImage3">
-  <div id="menuLateral"></div>
-  <div id="modal" class="modal">
-    <div style="text-align: center;">
-      <h2>Carregando</h2>
-    </div>
-    <div class="loader">
-      <img src="content/images/loading.gif" alt="">
-    </div>
-  </div>
-
-  <!--<iframe src="menu.html"></iframe>-->
-
-  <br /> <br /><br /> <br />
-
+<body class="text-center bodyImage3">  
+  
   <div class="container">
     <div class="row">
-      <div class="col-4"></div>
-
-      <form id="bodyContent" class="form-signin col-4" action="index.html">
+      <div class="col-3"></div>   
+      <form id="bodyContent" class="form-signin col-6" action="index.html">
         <label style="font-size: 50px;">🎲</label>
-        <input id="txtUsuario" class="form-control" placeholder="Usuario" required="" autofocus="">
-        <input type="password" id="txtSenha" class="form-control" placeholder="Senha" required="">
-        <input type="password" id="txtConfirmarSenha" class="form-control" placeholder="Repetir Senha" required="">
+        <input id="txtUsuario" class="form-control" placeholder="NickName" required="" autofocus="">
+        <div class="row">
+        <input type="password" id="txtSenha" class="form-control col-6" placeholder="Senha" required="">
+        <input type="password" id="txtConfirmarSenha" class="form-control col-6" placeholder="Repetir Senha" required="">
+        </div>
+        <input type="email" id="txtemail" class="form-control col-12" placeholder="E-mail" required="">
         <br />
         <a class="btn btn-lg btn-block btn-primary" onclick="registrar.registrar()"">Cadastrar</a>
         <p class=" mt-5 mb-3 text-muted"></p>
       </form>
-      <div class="col-4"></div>
+      <div class="col-3"></div>
     </div>
   </div>
 </body>

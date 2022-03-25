@@ -2,44 +2,46 @@ var registrar = function () {
 
     var controles = function () {
 
-        return{
+        return {
             txtUsuario: "#txtUsuario",
             txtsenha: "#txtSenha",
             txtconfirmaSenha: "#txtConfirmarSenha",
+            txtemail: "#txtEmail",
         };
     };
 
-    var registrar = function(){
-        if(validaUsuario)
-        {
-            alert("Usuario Cirado com Sucesso");
-            window.location.href = "/home.html";
+    var registrar = function () {
+        if (validaUsuario) {
+            alert("Usuario Cirado com Sucesso");           
         }
-        else
-        {
+        else {
             alert("Usuario Invalido");
         }
     };
 
-    var validaUsuario = function(){
-        return true;
+    var validaUsuario = function () {
         $.ajax({
-            data: getDto(),
-            url: "registrar/registrar",
-            context: document.body
-          }).done(function() {
-            $( this ).addClass( "done" );
-          }).fail(function(){
-            alert("Erro do servidor");
-          })
-       
+            url: "server/salvarUsuario",
+            contentType: 'aplication/json',
+            data: JSON.stringify(getDto()),
+            method: 'POST',
+            async: true
+        }).done(function (retorno) {
+            return true;
+        }).fail(function () {
+            alert("Falha na conexão com servidor");
+        })
+
     };
 
-    var getDto = function(){
+    var getDto = function () {
         var dto = {
             'senha': controles.txtsenha,
             'usuario': controles.txtUsuario,
-        }
+            'email': controles.txtemail,
+        };
+        debugger;
+        return dto;
     };
 
     return {
