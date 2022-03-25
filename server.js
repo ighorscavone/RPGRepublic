@@ -29,32 +29,32 @@ app.set('view engine', 'ejs')
 
 router.get('/', function(req,res){
 
-    res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home', layout: './layoutHome.ejs' })
 
 })
 
 router.get('/login', function(req,res){
 
-    res.render(path.join(__dirname + '/views/login.ejs'), { title: 'Login', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/login.ejs'), { title: 'Login', layout: './layoutHome.ejs' })
 
 })
 
 
 router.get('/sobre', function(req,res){
 
-    res.render(path.join(__dirname + '/views/sobre.ejs'), { title: 'Sobre', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/sobre.ejs'), { title: 'Sobre', layout: './layoutHome.ejs' })
 
 })
 
 router.get('/registrar', function(req,res){
 
-    res.render(path.join(__dirname + '/views/registrar.ejs'), { title: 'Registrar', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/registrar.ejs'), { title: 'Registrar', layout: './layoutHome.ejs' })
 
 })
 
 router.get('/game', function(req,res){
 
-    res.render(path.join(__dirname + '/dice/dice/game.ejs'), { title: 'Game', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/dice/dice/game.ejs'), { title: 'Game', layout: './layoutHome.ejs' })
 
 })
 

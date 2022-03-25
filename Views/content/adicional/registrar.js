@@ -8,18 +8,18 @@ var registrar = function () {
             txtconfirmaSenha: "#txtConfirmarSenha",
             txtemail: "#txtEmail",
         };
-    };
+    }();
 
-    var registrar = function () {
-        if (validaUsuario) {
+    var registrar = function () {         
+        if (validaUsuario()) {
             alert("Usuario Cirado com Sucesso");           
         }
         else {
             alert("Usuario Invalido");
-        }
+        } 
     };
 
-    var validaUsuario = function () {
+    var validaUsuario = function () {        
         $.ajax({
             url: "server/salvarUsuario",
             contentType: 'aplication/json',
@@ -36,9 +36,9 @@ var registrar = function () {
 
     var getDto = function () {
         var dto = {
-            'senha': controles.txtsenha,
-            'usuario': controles.txtUsuario,
-            'email': controles.txtemail,
+            'senha': $('#txtConfirmarSenha').val(),
+            'usuario': $(controles.txtUsuario).val(),
+            'email': $(controles.txtemail).val(),
         };
         debugger;
         return dto;
