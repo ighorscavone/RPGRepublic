@@ -29,32 +29,67 @@ app.set('view engine', 'ejs')
 
 router.get('/', function(req,res){
 
-    res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/home.ejs'), { title: 'Home', layout: './layoutHome.ejs' })
 
 })
 
 router.get('/login', function(req,res){
 
-    res.render(path.join(__dirname + '/views/login.ejs'), { title: 'Login', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/login.ejs'), { title: 'Login', layout: './layoutHome.ejs' })
 
 })
 
 
 router.get('/sobre', function(req,res){
 
-    res.render(path.join(__dirname + '/views/sobre.ejs'), { title: 'Sobre', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/sobre.ejs'), { title: 'Sobre', layout: './layoutHome.ejs' })
 
 })
 
 router.get('/registrar', function(req,res){
 
-    res.render(path.join(__dirname + '/views/registrar.ejs'), { title: 'Registrar', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/views/registrar.ejs'), { title: 'Registrar', layout: './layoutHome.ejs' })
 
 })
 
 router.get('/game', function(req,res){
 
-    res.render(path.join(__dirname + '/dice/dice/game.ejs'), { title: 'Game', layout: './layouts/layoutHome.ejs' })
+    res.render(path.join(__dirname + '/dice/dice/game.ejs'), { title: 'Game', layout: './layoutHome.ejs' })
+
+})
+
+app.post('/salvarUsuario', (req, res) => {
+
+    //DESTRUCT, EXTRAIR PROPRIEDADE DE UM OBJETO PARA VARIÁVEIS
+    const { dto } = req.body;
+
+    if(!dto) res.send("Dados insuficientes!");
+
+    //CASO O NOME DA PROPRIEDADE DE CONSULTA SEJA IGUAL AO NOME DE UMA VARÍAVEL
+    //NÃO É NECESSÁRIO REPETI-LA: EX: email: email
+    schemaUsuario.find({email}, (erro, usuario) => {
+
+        if(erro) res.send("Erro ao consultar usuário");
+
+        if(usuario) res.send("Usuário já existe");
+
+        let senhaCriptografada = criptografar(senha);
+
+        schemaUsuario.create({email, senhaCriptografada}, (erro, usuario) => {
+
+            if(erro) res.send("Erro ao criar novo usuário");
+
+            //IMPEDE QUE A SENHA SEJA RETORNADA
+            usuario.senha = undefined;
+            res.send({
+                usuario,
+                token: criaTokenUsuario(usuario.id)
+            });
+            
+        })
+    })
+    
+    res.send("Método post USUARIOS funcionando corretamente");
 
 })
 

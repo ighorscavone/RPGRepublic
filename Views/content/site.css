@@ -85,9 +85,10 @@ body{
 
 
 #bodyContent {
-    margin: 10% auto;
+    margin: 7% auto;
     background-color: rgb(232, 232, 232, 0.8);
-    height: 100%;
+    height: 85%;
+    margin-bottom: 4%;
 }
 #bodyContent h1{
     font-weight: bold;
@@ -172,7 +173,4 @@ footer{
     width: 20%; 
     background-color: white;
     border-radius: 100%;
-}
-.jumbotron {
-    height: 850px !important;
 }
