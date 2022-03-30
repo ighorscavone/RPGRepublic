@@ -22,6 +22,7 @@ const expressLayouts = require('express-ejs-layouts')
 const app = express();
 const path = require('path');
 const router = express.Router();
+const schemaUsuario = require('./src/models/Usuario')
 
 app.use(expressLayouts)
 //app.set('layout', './layouts/layoutHome.ejs')
@@ -108,4 +109,4 @@ io.on('connection', socket => {
 app.use('/', router);
 app.listen(process.env.port || 3333);
 
-console.log("Server rodando, listening at dor :3333 ")
+console.log("Server rodando, listening at http://localhost:3333")
