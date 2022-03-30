@@ -23,6 +23,8 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 const schemaUsuario = require('./src/models/Usuario')
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 app.use(expressLayouts)
 //app.set('layout', './layouts/layoutHome.ejs')
@@ -78,16 +80,12 @@ app.post('/salvarUsuario', (req, res) => {
 
         if(erro) res.send("Erro ao consultar usuário");
 
-        if(usuario) res.send("Usuário já existe");
+        if(usuario) res.send("Usuário já existe");        
 
-        let senhaCriptografada = criptografar(senha);
-
-        schemaUsuario.create({email, senhaCriptografada}, (erro, usuario) => {
+        schemaUsuario.create({email, senha, usuario}, (erro, usuario) => {
 
             if(erro) res.send("Erro ao criar novo usuário");
-
-            //IMPEDE QUE A SENHA SEJA RETORNADA
-            usuario.senha = undefined;
+                      
             res.send({
                 usuario,
                 token: criaTokenUsuario(usuario.id)

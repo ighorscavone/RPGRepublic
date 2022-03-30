@@ -11,25 +11,33 @@ var registrar = function () {
     }();
 
     var registrar = function () {         
-        $.ajax({
-            url: "./salvarUsuario",
-            contentType: 'aplication/json',
-            data: JSON.stringify(getDto()),
-            method: 'POST',
-            async: true
-        }).done(function (retorno) {
-            debugger;
-            return true;
-        }).fail(function () {
-            alert("Falha na conexão com servidor");
-        }) 
+        if (validaUsuario()) {
+            $.ajax({
+                url: "salvarUsuario",
+                contentType: 'aplication/json',
+                data: JSON.stringify(getDto()),
+                method: 'POST',
+                async: true
+            }).done(function (retorno) {
+                debugger;
+                alert("Usuario Cirado com Sucesso" + retorno);
+            }).fail(function () {
+                alert("Falha na conexão com servidor");
+            })                       
+        }
+        else {
+            alert("Usuario Invalido");
+        } 
     };
 
+    var validaUsuario = function () {        
+       return true;
 
+    };
 
     var getDto = function () {
         var dto = {
-            'senha': $('#txtConfirmarSenha').val(),
+            'senha': $(controles.txtsenha).val(),
             'usuario': $(controles.txtUsuario).val(),
             'email': $(controles.txtemail).val(),
         };

@@ -2,25 +2,33 @@
   <title>
     <%- title %>
   </title>
-  <script src="./content/adicional/registrar.js"></script> 
+  <script src="./content/adicional/registrar.js"></script>
 </head>
 
-<body class="text-center bodyImage3">  
-  
+<body class="text-center bodyImage3">
+
   <div class="container">
     <div class="row">
-      <div class="col-3"></div>   
+      <div class="col-3"></div>
       <form id="bodyContent" class="form-signin col-6" action="index.html">
         <label style="font-size: 50px;">🎲</label>
-        <input id="txtUsuario" class="form-control" placeholder="NickName" >
-        <div class="row">
-        <input type="password" id="txtSenha" class="form-control col-6" placeholder="Senha" >
-        <input type="password" id="txtConfirmarSenha" class="form-control col-6" placeholder="Repetir Senha" required="">
+        <input id="txtUsuario" class="form-control" placeholder="NickName">
+        <br />
+        <div class="row g-6">
+          <div class="col-md-6">
+            <input type="password" id="txtSenha" class="form-control " placeholder="Senha">
+          </div>
+          <div class="col-md-6">
+            <input type="password" id="txtConfirmarSenha" class="form-control " placeholder="Repetir Senha" required="">
+          </div>
         </div>
-        <input type="email" id="txtemail" class="form-control col-12" placeholder="E-mail" >
+        <br />
+        <input type="email" id="txtEmail" class="form-control col-12" placeholder="E-mail">
         <br />
         <a class="btn btn-lg btn-block btn-primary" onclick="registrar.registrar()"">Cadastrar</a>
         <p class=" mt-5 mb-3 text-muted"></p>
+
+
       </form>
       <div class="col-3"></div>
     </div>
@@ -43,7 +51,8 @@
         <label for="validationCustomUsername" class="form-label">Username</label>
         <div class="input-group has-validation">
           <span class="input-group-text" id="inputGroupPrepend">@</span>
-          <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+          <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
+            required>
           <div class="invalid-feedback">
             Please choose a username.
           </div>
