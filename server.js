@@ -58,6 +58,12 @@ router.get('/game', function(req,res){
 
 })
 
+router.get('/sala', function(req,res){
+
+    res.render(path.join(__dirname + '/views/sala.ejs'), { title: 'Game', layout: './layoutHome.ejs' })
+
+})
+
 app.post('/salvarUsuario', (req, res) => {
 
     //DESTRUCT, EXTRAIR PROPRIEDADE DE UM OBJETO PARA VARIÁVEIS

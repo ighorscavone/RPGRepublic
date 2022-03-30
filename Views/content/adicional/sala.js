@@ -11,26 +11,34 @@ var sala = function () {
 
     var CriaSalas = function () {
         return Math.floor((Math.random() * 10) + 1); //cria salaAleatoria  
-        
+
         $.ajax({
             data: idUsuario,
             url: "sala/PesquisarFicha",
             context: document.body
-          }).done(function(data) {
-            $( this ).addClass( "done" );
+        }).done(function (data) {
+            $(this).addClass("done");
             preecheFicha(data);
-          }).fail(function(){
+        }).fail(function () {
             alert("Erro do servidor");
-          })
+        })
     };
 
-    var preecheFicha = function(data){
+    var preecheFicha = function (data) {
 
     }
 
-    var dados = function()
-    {
-        montarModalComEfeito()
+    var dados = function () {
+        $.ajax({
+            url: "server/modalDados",
+            contentType: 'aplication/json',            
+            method: 'POST',
+            async: true
+        }).done(function (retorno) {
+            return true;
+        }).fail(function () {
+            alert("Falha na conexão com servidor");
+        });
 
     }
 
@@ -50,7 +58,7 @@ var sala = function () {
     return {
         controles: controles,
         adicionarMensagem: adicionarMensagem,
-        CriaSalas:CriaSalas,
+        CriaSalas: CriaSalas,
         dados: dados
     };
 }();
